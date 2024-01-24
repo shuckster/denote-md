@@ -446,7 +446,7 @@ handle_list ()
 handle_list_all_tags ()
 {
   local files=$(process_files_from_stdin_or_args "$@")
-  if test "$1" = ""
+  if test "$files" = ""
   then
     files=$(ls ${DENOTE_MD_NOTES_PATH}*.md)
   fi
