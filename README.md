@@ -43,6 +43,12 @@ Usage: denote-md.sh [-g] <command> [<args>]
   env                 Print environment variables
 ```
 
+Commands that accept globs can also read files from `stdin`, eg:
+
+```
+ls *.md|denote-md list tags
+```
+
 Prefixing a command with `-g` will enable colour for any printed filenames.
 
 Except for `new`, commands with missing arguments will print help and an
