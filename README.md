@@ -4,6 +4,8 @@ Shell script for Denote's Markdown + YAML variant.
 
 Latest version: 1.0.0
 
+<img alt="denote-md" src="./screenshot.png" width="400" />
+
 ---
 
 Denote was written by Protesilaos Stavrou and is documented here:
