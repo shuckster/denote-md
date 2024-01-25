@@ -4,7 +4,7 @@ Shell script for Denote's Markdown + YAML variant.
 
 Latest version: 1.0.0
 
-<img alt="denote-md" src="./screenshot.png" width="400" />
+<img alt="denote-md" src="./screenshot.png" width="500" />
 
 ---
 
@@ -59,8 +59,12 @@ example for that command. The `new` command will prompt for missing arguments.
 No command is confirmed before being executed, so please use in combination
 with version control. You have been warned.
 
-## Credit
+## Credits
 
 Props to
 [u/varsderk](https://www.reddit.com/r/vim/comments/17vm4i8/re_denote_for_vim_fineill_make_a_crappy_version/)
 for introducing me to [denote](https://protesilaos.com/emacs/denote).
+
+`denote-md` was written by [Conan Theobald](https://github.com/shuckster/).
+
+I hope you found it useful! If so, I like [coffee ☕️](https://www.buymeacoffee.com/shuckster) :)
