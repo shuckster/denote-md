@@ -56,3 +56,9 @@ example for that command. The `new` command will prompt for missing arguments.
 
 No command is confirmed before being executed, so please use in combination
 with version control. You have been warned.
+
+## Credit
+
+Props to
+[u/varsderk](https://www.reddit.com/r/vim/comments/17vm4i8/re_denote_for_vim_fineill_make_a_crappy_version/)
+for introducing me to [denote](https://protesilaos.com/emacs/denote).
