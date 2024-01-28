@@ -53,7 +53,6 @@ front-matter variant only, with a couple of extra features that the author
 finds personally useful. It was written by Conan Theobald.
 
 There is a companion Vim plugin available.
-- https://github.com/shuckster/denote-md
 - https://github.com/shuckster/vim-denote-md
 
 CLI usage:
