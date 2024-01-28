@@ -9,6 +9,8 @@ Latest version: 1.0.0
 <details>
 <summary>Denote TL;DR:</summary>
 
+It's a note-taking system designed to work well even with basic file-system tools like `ls` and `grep`.
+
 The file-name format:
 
 ```
