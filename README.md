@@ -36,6 +36,13 @@ Hop along to [[denote:20210815T234244]] for more info...
 
 </details>
 
+Once installed, configure these paths:
+
+```sh
+export DENOTE_MD_SCRIPT_PATH=/path/to/denote-md.sh
+export DENOTE_MD_NOTES_PATH=/path/to/your/notes/folder/
+```
+
 ---
 
 Denote was written by Protesilaos Stavrou and is documented here:
