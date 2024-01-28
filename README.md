@@ -6,6 +6,36 @@ Latest version: 1.0.0
 
 <img alt="denote-md" src="./screenshot.png" width="500" />
 
+<details>
+<summary>Denote TL;DR:</summary>
+
+The file-name format:
+
+```
+20210319T202401--single-responsibility__software_solid_zettel.md
+^_____________^  ^___________________^  ^___________________^
+      id                 title                   tags
+```
+
+The front-matter:
+
+```md
+---
+identifier: "20210815T234244"
+date: 2021-08-15T23:42:44.000Z
+tags: [ "software", "javascript", "zettel" ]
+title: "Currying"
+---
+```
+
+The links between notes:
+
+```
+Hop along to [[denote:20210815T234244]] for more info...
+```
+
+</details>
+
 ---
 
 Denote was written by Protesilaos Stavrou and is documented here:
