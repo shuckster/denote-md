@@ -89,6 +89,23 @@ their newly updated filenames.
       ;;
 
 # ==============================================================================
+# LIST THINGS UNDER A HEADING
+# ==============================================================================
+    "list heading")
+      echo "$1 [tags]
+
+List everything under the specified heading, eg;
+
+  $ $0 list heading Summary tag1,-tag2
+  20231206T114112--my-note-1__tag1.md
+  A summary you wrote under the heading you specified.
+
+All lines under an '# Summary' heading, up until the next line starting with
+'#' or End-of-File.
+"
+      ;;
+
+# ==============================================================================
 # LIST ACTIONS/BACKLINKS
 # ==============================================================================
     "list actions")
@@ -103,6 +120,8 @@ List all actions in the given notes, eg;
 
 Actions are all lines under an '# Actions' heading, up until the next line
 starting with '#' or End-of-File.
+
+Essentially an alias for 'list heading Actions'
 "
       ;;
     "list backlinks")
@@ -186,6 +205,7 @@ their newly updated filenames.
   list     notes      [tags]
   list     recent     [num_notes]
   list     backlinks  note.md
+  list     heading    [heading] [tags]
   list     actions    [tags]
 
   add      tag        [tag] *.md
@@ -438,6 +458,7 @@ handle_list ()
     notes) handle_list_notes_for_tags $@;;
     recent) handle_list_recent_notes $@;;
     backlinks) handle_list_backlinks $@;;
+    heading) handle_list_heading $@;;
     actions) handle_list_actions $@;;
     *) handle_help "list";;
   esac
@@ -527,6 +548,32 @@ handle_list_backlinks ()
   done
 }
 
+handle_list_heading ()
+{
+  if test "$1" = "" || test "$2" = ""
+  then
+    handle_help "list heading"
+    return
+  fi
+  local heading="${1:-Actions}"
+  local tags="$2"
+  local _enable_colors="$enable_colors"
+  enable_colors="false"
+  local notes_for_tags
+  notes_for_tags=$(handle_list_notes_for_tags "$tags")
+  enable_colors="$_enable_colors"
+  for file in $notes_for_tags
+  do
+    print_note_name "$file"
+    awk '
+      /^# '"${heading}"'/ { flag=1; next; }
+      /^#/ { if (flag) print ""; exit; }
+      flag && NF { print; }
+      END { print ""; }
+    ' "$file"
+  done
+}
+
 handle_list_actions ()
 {
   if test "$1" = ""
@@ -534,21 +581,7 @@ handle_list_actions ()
     handle_help "list actions"
     return
   fi
-  local tags="$1"
-  local _enable_colors="$enable_colors"
-  enable_colors="false"
-  local notes_for_tags=$(handle_list_notes_for_tags "$tags")
-  enable_colors="$_enable_colors"
-  for file in $notes_for_tags
-  do
-    print_note_name "$file"
-    awk '
-      /^# Actions/ { flag=1; next; }
-      /^#/ { if (flag) print ""; exit; }
-      flag && NF { print; }
-      END { print ""; }
-    ' "$file"
-  done
+  handle_list_heading "Actions" "$1" 
 }
 
 #
