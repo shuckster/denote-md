@@ -2,7 +2,7 @@
 
 Shell script for Denote's Markdown + YAML variant.
 
-Latest version: 1.0.0
+Latest version: 1.1.0
 
 <img alt="denote-md" src="./screenshot.png" width="400" />
 
@@ -33,6 +33,7 @@ Usage: denote-md.sh [-g] <command> [<args>]
   list     notes      [tags]
   list     recent     [num_notes]
   list     backlinks  note.md
+  list     heading    [heading] [tags]
   list     actions    [tags]
 
   add      tag        [tag] *.md
