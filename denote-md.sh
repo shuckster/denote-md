@@ -1,4 +1,5 @@
 #!/bin/bash
+# shellcheck disable=2155
 
 if test "$1" = "env"
 then
