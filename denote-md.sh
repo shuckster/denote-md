@@ -279,7 +279,7 @@ handle_add_tag ()
   fi
   local tag_to_add="$2"
   shift 2
-  process_files_from_stdin_or_args "$@" | while read file
+  process_files_from_stdin_or_args "$@" | while read -r file
   do
     local fm="$(frontmatter_from_file "$file")"
     local tags="$(tags_from_frontmatter "$fm")"
@@ -308,7 +308,7 @@ handle_remove_tag ()
   fi
   local tag_to_remove="$2"
   shift 2
-  process_files_from_stdin_or_args "$@" | while read file
+  process_files_from_stdin_or_args "$@" | while read -r file
   do
     local fm="$(frontmatter_from_file "$file")"
     local tags="$(tags_from_frontmatter "$fm")"
@@ -338,7 +338,7 @@ handle_rename_tag ()
   local tag_to_rename="$2"
   local new_tag_name="$3"
   shift 3
-  process_files_from_stdin_or_args "$@" | while read file
+  process_files_from_stdin_or_args "$@" | while read -r file
   do
     local fm="$(frontmatter_from_file "$file")"
     local tags="$(tags_from_frontmatter "$fm")"
@@ -425,7 +425,7 @@ handle_refresh_filename ()
     handle_help "refresh"
     return
   fi
-  process_files_from_stdin_or_args "$@" | while read file
+  process_files_from_stdin_or_args "$@" | while read -r file
   do
     local fm="$(frontmatter_from_file "$file")"
     local title="$(title_from_frontmatter "$fm")"
@@ -641,7 +641,7 @@ process_files_from_stdin_or_args ()
     done
   else
     # Read from stdin
-    while read file
+    while read -r file
     do
       echo "$file"
     done
@@ -937,7 +937,7 @@ prompt_when_no_value ()
     return
   fi
   local input
-  read -e -p "$prompt_message" input
+  read -r -e -p "$prompt_message" input
   echo "$input"
 }
 
