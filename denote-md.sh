@@ -631,6 +631,19 @@ handle_get_title ()
 
 # FILES
 
+directory_from_filename ()
+{
+  local file folder
+  file="$1"
+  maybe_folder="${file%/*}"
+  if test "${file}" = "${maybe_folder}"
+  then 
+    echo ""
+  fi
+  folder="${maybe_folder}"
+  echo "${folder}"
+}
+
 process_files_from_stdin_or_args ()
 {
   if test -t 0
