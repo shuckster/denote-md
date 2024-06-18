@@ -639,6 +639,7 @@ directory_from_filename ()
   if test "${file}" = "${maybe_folder}"
   then 
     echo ""
+    return
   fi
   folder="${maybe_folder}"
   echo "${folder}"
