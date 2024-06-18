@@ -290,7 +290,7 @@ handle_add_tag ()
     local filename="$(filename_from_frontmatter "$new_fm")"
     echo "$new_fm" > "$file"
     echo "$note_content" >> "$file"
-    mv "$file" "$filename"
+    mv "$file" "$(directory_from_filename "${file}")$filename"
     print_note_name "$filename"
   done
 }
@@ -319,7 +319,7 @@ handle_remove_tag ()
     local filename="$(filename_from_frontmatter "$new_fm")"
     echo "$new_fm" > "$file"
     echo "$note_content" >> "$file"
-    mv "$file" "$filename"
+    mv "$file" "$(directory_from_filename "${file}")$filename"
     print_note_name "$filename"
   done
 }
@@ -354,7 +354,7 @@ handle_rename_tag ()
     local filename="$(filename_from_frontmatter "$new_fm")"
     echo "$new_fm" > "$file"
     echo "$note_content" >> "$file"
-    mv "$file" "$filename"
+    mv "$file" "$(directory_from_filename "${file}")$filename"
     print_note_name "$filename"
   done
 }
@@ -391,7 +391,7 @@ handle_replace_title ()
   local filename="$(filename_from_frontmatter "$new_fm")"
   echo "$new_fm" > "$file"
   echo "$note_content" >> "$file"
-  mv "$file" "$filename"
+  mv "$file" "$(directory_from_filename "${file}")$filename"
   print_note_name "$filename"
 }
 
@@ -411,7 +411,7 @@ handle_replace_tags ()
   local filename="$(filename_from_frontmatter "$new_fm")"
   echo "$new_fm" > "$file"
   echo "$note_content" >> "$file"
-  mv "$file" "$filename"
+  mv "$file" "$(directory_from_filename "${file}")$filename"
   print_note_name "$filename"
 }
 
@@ -439,7 +439,7 @@ handle_refresh_filename ()
       local note_content="$(file_without_frontmatter "$file")"
       echo "$new_fm" > "$file"
       echo "$note_content" >> "$file"
-      mv "$file" "$filename"
+      mv "$file" "$(directory_from_filename "${file}")$filename"
       file="$filename"
       print_note_name "$file"
     fi
