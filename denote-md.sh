@@ -20,7 +20,7 @@ handle_help ()
   if test "$1" = ""
   then
 echo "
--=[ denote-md 1.1.0 ]=--------------------------------------------------------
+-=[ denote-md 1.1.1 ]=--------------------------------------------------------
 
 Denote was written by Protesilaos Stavrou and is documented here:
 - https://protesilaos.com/emacs/denote
