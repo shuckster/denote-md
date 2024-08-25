@@ -486,7 +486,7 @@ handle_list_all_tags ()
     then
      tags="$tags,"
     fi
-    next_tags="$(tags_from_filename "$file")"
+    next_tags=$(tags_from_filename "$(basename "$file")")
     tags="$tags${next_tags/[$'\t\r\n']/,}"
   done
   local tag_list="$(echo "${tags/[$'\t\r\n,']/,}" | tr ',' '\n' | sort -u)"
