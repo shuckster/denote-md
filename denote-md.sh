@@ -652,19 +652,15 @@ directory_from_filename ()
   echo "${folder}"
 }
 
-process_files_from_stdin_or_args ()
-{
-  if test -t 0
-  then
-    # No stdin, so process args
-    for file in "$@"
-    do
+process_files_from_stdin_or_args() {
+  if [ "$#" -gt 0 ]; then
+    # Process args if they are provided
+    for file in "$@"; do
       echo "$file"
     done
   else
-    # Read from stdin
-    while read -r file
-    do
+    # Otherwise, read from stdin
+    while read -r file; do
       echo "$file"
     done
   fi
