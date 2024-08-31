@@ -280,6 +280,7 @@ handle_add_tag ()
   fi
   local tag_to_add="$2"
   shift 2
+
   process_files_from_stdin_or_args "$@" | while read -r file
   do
     local fm="$(frontmatter_from_file "$file")"
@@ -476,7 +477,7 @@ handle_list_all_tags ()
   local files=$(process_files_from_stdin_or_args "$@")
   if test "$files" = ""
   then
-    files=$(ls ${DENOTE_MD_NOTES_PATH}*.md)
+    files=$(ls "${DENOTE_MD_NOTES_PATH}"*.md)
   fi
   local tags=""
   local next_tags
@@ -507,7 +508,7 @@ handle_list_notes_for_tags ()
 {
   local tags="$1"
   shift
-  for file in $(ls ${DENOTE_MD_NOTES_PATH}*.md)
+  for file in "${DENOTE_MD_NOTES_PATH}"*.md
   do
     if test "$tags" = ""
     then
